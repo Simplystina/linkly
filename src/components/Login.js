@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Box, VStack, Text, Input, Button, Flex , useToast} from '@chakra-ui/react'
 import {FaBackward} from "react-icons/fa"
-import { useNavigate , Link, useHistory} from "react-router-dom";
+import { useNavigate , Link} from "react-router-dom";
 import { login } from '../utils/services'
 
 const Login = () => {

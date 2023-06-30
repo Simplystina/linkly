@@ -1,4 +1,4 @@
-import {Box, Flex, Text, Img, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, Table, useToast} from "@chakra-ui/react"
+import {Box, Flex, Text, Img, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, useToast} from "@chakra-ui/react"
 import React, { useEffect, useState } from 'react'
 import linkly from "../asset/Linkly.png"
 import {FaLink} from "react-icons/fa"

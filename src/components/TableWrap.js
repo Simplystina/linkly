@@ -1,13 +1,12 @@
-import React, { useEffect, useState , useRef} from 'react'
+import React, { useEffect, useState} from 'react'
 import { Box,  Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
     TableCaption,
-    TableContainer, IconButton, useToast, Badge} from '@chakra-ui/react'
+    TableContainer, IconButton, useToast} from '@chakra-ui/react'
 import {FiCopy} from "react-icons/fi"
 import moment from "moment"
 import {MdDelete} from "react-icons/md"
