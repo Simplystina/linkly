@@ -23,7 +23,7 @@ export const login = async (credentials) => {
 export const shortenLink = async(data)=>{
   try {
     const response = await api.post('/urls/shorten', data)
-    const  shortUrl  = response.data;
+
     return response.data
   } catch (error) {
     console.log(error,"erorr")
@@ -34,8 +34,7 @@ export const shortenLink = async(data)=>{
 export const linkHistory = async()=>{
   try {
     const response = await api.get('/urls/links/history')
-    const  shortUrl  = response.data;
-    return response.data
+     return response.data
   } catch (error) {
     console.log(error,"erorr")
     throw error.response.data;
