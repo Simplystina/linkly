@@ -56,7 +56,7 @@ const ShortenUrl = () => {
         console.log(error.message, error)
         toast({
             title: 'Error shortening url',
-            description: error.message,
+            description: error.message || error,
             status: 'error',
             duration: 2000,
             isClosable: true,

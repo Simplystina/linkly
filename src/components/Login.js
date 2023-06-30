@@ -73,7 +73,7 @@ const Login = () => {
           console.log(error); // Display the error message
           toast({
             title: 'Login error',
-            description: error.message,
+            description: error.message || error,
             status: 'error',
             duration: 2000,
             isClosable: true,

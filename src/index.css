@@ -4,10 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Inter:regular,bold,italic&subset=latin,latin-ext');
 
 body {
- 
   font-family: Cormorant Upright;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
    color: white !important;
 }
 
