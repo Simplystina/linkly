@@ -1,13 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Upright:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Bestermind:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Inter:regular,bold,italic&subset=latin,latin-ext');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+ 
+  font-family: Cormorant Upright;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: Cormorant Upright;
 }
+
+.homePage{
+       background-image: url("./asset/MainPage.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+  
+      height: 100vh;
+}
+.gradient-text {
+  background-color: #f3ec78;
+    background-image: linear-gradient(360deg, #A353AA, #EB568E, #144EE3);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+  font-size: 30px;
+  font-family: Inter;
+  letter-spacing: 3px;
+  
+}
+
+.gradient-text-small {
+  background-color: #f3ec78;
+    background-image: linear-gradient(360deg, #A353AA, #EB568E, #144EE3);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+  font-size: 15px;
+  font-family: Inter;
+  letter-spacing: 3px;
+  
+}
+
+.wrapped-link {
+ 
+  max-width: 300px; /* Adjust the maximum width as needed */
+  overflow: hidden;
+  height: auto;
+  transition: all 0.5s linear; /* Add transition properties */
+  
+}
+
+.wrapped-link:hover {
+  max-height: 100px;
+  white-space: normal;
+  overflow: visible;
+  
+}
+
