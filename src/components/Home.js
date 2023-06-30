@@ -80,7 +80,7 @@ const Home = () => {
            </Button>
          
            <Link to="/register">
-               <Button _hover={{color:"#144EE3"}} fontFamily="Inter" p={["10px 20px","10px 40px"]} fontSize={["10px","12px"]} bg="#144EE3" borderRadius={30} color="FFFFFF">
+               <Button _hover={{color:"#144EE3", bg:"whitesmoke"}} fontFamily="Inter" p={["10px 20px","10px 40px"]} fontSize={["10px","12px"]} bg="#144EE3" borderRadius={30} color="FFFFFF">
                Register
               </Button>
             </Link>
