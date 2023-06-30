@@ -75,12 +75,12 @@ const Home = () => {
          <Img src={linkly} w={["50px","100px"]} h={["50px","100px"]} objectFit="contain"/>
          <HStack>
           
-           <Button onClick={login} fontFamily="Inter" borderRadius={20} p={["6px 10px","10px 20px"]} fontSize={["10px","12px"]} color="FFFFFF" border="0.5px inset #FFFFFF" leftIcon={<BiLinkExternal/>}>
+           <Button colorScheme="gray" onClick={login} fontFamily="Inter" borderRadius={20} p={["6px 10px","10px 20px"]} fontSize={["10px","12px"]} color="FFFFFF" border="0.5px inset #FFFFFF" leftIcon={<BiLinkExternal/>}>
             login
            </Button>
          
            <Link to="/register">
-               <Button fontFamily="Inter" p={["10px 20px","10px 40px"]} fontSize={["10px","12px"]} bg="#144EE3" borderRadius={30} color="FFFFFF">
+               <Button _hover={{color:"#144EE3"}} fontFamily="Inter" p={["10px 20px","10px 40px"]} fontSize={["10px","12px"]} bg="#144EE3" borderRadius={30} color="FFFFFF">
                Register
               </Button>
             </Link>
