@@ -72,25 +72,26 @@ const Home = () => {
   return (
     <Box className="homePage" p={["10px", "20px"]}>
       <Flex justifyContent="space-between">
-         <Img src={linkly} w={["50px","100px"]} h={["50px","100px"]} objectFit="contain"/>
+         <Img src={linkly} w={["80px","100px"]} h={["50px","100px"]} objectFit="contain"/>
          <HStack>
           
-           <Button colorScheme="gray" onClick={login} fontFamily="Inter" borderRadius={20} p={["6px 10px","10px 20px"]} fontSize={["10px","12px"]} color="FFFFFF" border="0.5px inset #FFFFFF" leftIcon={<BiLinkExternal/>}>
+           <Button colorScheme="gray" onClick={login} fontFamily="Inter" borderRadius={20} p={["6px 15px","10px 20px"]} fontSize={["10px","12px"]} color="FFFFFF" border="0.5px inset #FFFFFF" leftIcon={<BiLinkExternal/>}>
             login
            </Button>
          
            <Link to="/register">
-               <Button _hover={{color:"#144EE3", bg:"whitesmoke"}} fontFamily="Inter" p={["10px 20px","10px 40px"]} fontSize={["10px","12px"]} bg="#144EE3" borderRadius={30} color="FFFFFF">
+               <Button _hover={{color:"#144EE3", bg:"whitesmoke"}} fontFamily="Inter" p={["15px 30px","10px 40px"]} fontSize={["10px","12px"]} bg="#144EE3" borderRadius={30} color="FFFFFF">
                Register
               </Button>
             </Link>
          </HStack>
       </Flex>
       
-      <Box m="30px auto" w={["100%","80%","60%"]}>
-      <Img src={desc} w="100%" objectFit="contain"/>
-         <Text p="20px 0" textAlign="center" fontSize={["12px","14px","16px"]}>Linkly is an efficient and easy-to-use URL shortening service that streamlines your online experience.</Text>
-         <Box>
+      <Box m={["80px auto 0 auto", "30px auto 0 auto"]} w={["100%","80%","60%"]}>
+        <Text fontFamily="Cormorant Upright" textAlign="center" fontSize={["30px","45px"]} className="title-gradient-text">Shorten Your Loooong Links:)</Text>
+
+         <Text fontFamily="Cormorant Upright" p="20px 0" textAlign="center" fontSize={["14px","16px"]}>Linkly is an efficient and easy-to-use URL shortening service that streamlines your online experience.</Text>
+         <Box mt="30px">
             <InputGroup h="100%" borderRadius="30px">
                 <InputLeftElement pointerEvents='none'>
                   <FaLink/>
@@ -119,7 +120,7 @@ const Home = () => {
               <Switch></Switch>
               <Text fontSize={["10px","12px","14px"]}>Auto Paste from Clipboard </Text>
           </HStack>
-          <Text fontSize={["12px","14px","16px"]} textAlign="center">You can create 05 more links. Register  Now to enjoy Unlimited usage</Text>
+          <Text fontFamily="Cormorant Upright" fontSize={["12px","14px","16px"]} textAlign="center">You can create 05 more links. Register  Now to enjoy Unlimited usage</Text>
       </Box>
     </Box>
   )
