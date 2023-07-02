@@ -5,7 +5,7 @@ const API_BASE_URL = 'https://urlshortner-3u0i.onrender.com';
 
 export const signUp = async (userData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/signup`, userData);
+    const response = await axios.post(`${API_BASE_URL}/user/signup`, userData);
     return response.data;
   } catch (error) {
     throw error.response.data;
@@ -14,7 +14,16 @@ export const signUp = async (userData) => {
 
 export const login = async (credentials) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/login`, credentials);
+    const response = await axios.post(`${API_BASE_URL}/user/login`, credentials);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+export const verifyMail = async (token) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/user/verify?token=${token}`);
     return response.data;
   } catch (error) {
     throw error.response.data;
