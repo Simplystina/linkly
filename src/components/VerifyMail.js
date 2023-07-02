@@ -11,7 +11,7 @@ const VerifyMail = () => {
   // Accessing query parameters
   const token = queryParams.get('token');
   console.log(token,"token")
-  
+
     const verify = async(token)=>{
         try {
             const data = await verifyMail(token)
@@ -23,7 +23,7 @@ const VerifyMail = () => {
 
     useEffect(()=>{
        verify(token)
-    },[])
+    },[token])
   return (
     <Flex className="homePage" p={["10px", "20px"]}>
         <Box m="auto">

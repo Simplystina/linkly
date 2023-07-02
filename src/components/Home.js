@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import {Box, Flex, Text, Img, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, useToast} from "@chakra-ui/react"
 import {FaLink} from "react-icons/fa"
 
-import desc from "../asset/desc.png"
 import linkly from "../asset/Linkly.png"
 import {BiLinkExternal} from "react-icons/bi"
 import { shortenLink , copyToClipboard} from '../utils/services'
