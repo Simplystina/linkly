@@ -34,6 +34,7 @@ import { signUp } from '../utils/services'
             status: 'success',
             duration: 9000,
             isClosable: true,
+            position: 'top-left'
           })
     
           // Reset the form fields

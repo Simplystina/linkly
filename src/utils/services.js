@@ -1,6 +1,7 @@
 import axios from 'axios';
 import api from '../utils/api'
 
+
 const API_BASE_URL = 'https://urlshortner-3u0i.onrender.com';
 
 export const signUp = async (userData) => {
@@ -24,6 +25,8 @@ export const login = async (credentials) => {
 export const verifyMail = async (token) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/user/verify?token=${token}`);
+
+    console.log(response,"response")
     return response.data;
   } catch (error) {
     throw error.response.data;
