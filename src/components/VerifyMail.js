@@ -39,7 +39,7 @@ const VerifyMail = () => {
          <Box m="0 auto">
          <Img src={verified} w="100%" h="300px" objectFit="contain"/>
               <Text fontSize={["40px"]} color="#fff">Verificated successful</Text>
-           <Link>
+           <Link to='/login'>
               <Button m="0 auto" fontSize={[14]}>Click to Login</Button>
            </Link>  
        </Box>
