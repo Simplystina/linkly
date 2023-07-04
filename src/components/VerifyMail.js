@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Text, Flex, Button, Img } from '@chakra-ui/react'
+import { Box, Text, Button, Img } from '@chakra-ui/react'
 import { verifyMail } from '../utils/services'
 import {useLocation} from "react-router-dom"
 import verified from "../asset/verified.svg"
