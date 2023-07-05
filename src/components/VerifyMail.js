@@ -47,7 +47,9 @@ const VerifyMail = () => {
             <Box m="0 auto">
               <Img src={unverified} w="100%" h="300px" objectFit="contain"/>
                    <Text fontSize={["40px"]} color="#fff">Verificated Failed</Text>
-                  <Button m="0 auto" fontSize={[14]}>Click to resend token</Button>
+                 <Link to='/resend-mail'>
+                    <Button m="0 auto" fontSize={[14]}>Click to resend token</Button>
+                  </Link> 
             </Box>
         }
     </Box>

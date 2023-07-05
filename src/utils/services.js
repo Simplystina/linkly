@@ -33,6 +33,18 @@ export const verifyMail = async (token) => {
     throw error.response.data;
   }
 };
+
+export const resendMail = async (data) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/user/resend-link`, data);
+
+    console.log(response,"response")
+    return response.data;
+  } catch (error) {
+    console.log(error,"errorrr")
+    throw error.response.data;
+  }
+};
 export const shortenLink = async(data)=>{
   try {
     const response = await api.post('/urls/shorten', data)

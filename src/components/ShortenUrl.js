@@ -1,4 +1,4 @@
-import {Box, Flex, Text, Img, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, useToast} from "@chakra-ui/react"
+import {Box, Flex, Text, Img, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, useToast, InputAddon, InputLeftAddon, InputRightAddon} from "@chakra-ui/react"
 import React, { useEffect, useState } from 'react'
 import linkly from "../asset/Linkly.png"
 import {FaLink} from "react-icons/fa"
@@ -15,6 +15,7 @@ const ShortenUrl = () => {
     const [link, setLink] = useState('')
     const [shortenedurl, setShortenedUrl] = useState('') 
     const [loading, setLoading] = useState(false)
+    const [customizeurl, setCustomizeurl] = useState('')
 
     const firstName = localStorage.getItem('firstName');
 
@@ -37,7 +38,8 @@ const ShortenUrl = () => {
         
         //"https://en.wikipedia.org/wiki/Adesua_Etomi"
         const data = {
-            "url": link
+            "url": link,
+            customizedurl: customizeurl
            }
         const info = await shortenLink(data)
       console.log(info ,"shortened data")
@@ -64,6 +66,8 @@ const ShortenUrl = () => {
           })
       }finally{
         setLoading(false)
+        setCustomizeurl('')
+        setLink('')
       }
     }
     useEffect(()=>{
@@ -87,6 +91,11 @@ const ShortenUrl = () => {
                     </Button>
                 </InputRightElement>
             </InputGroup>
+             <InputGroup size='sm' mt="20px">
+             <InputLeftAddon borderTopLeftRadius="10px" borderBottomLeftRadius="10px" children='customize link' />
+                <Input borderRadius="10px" placeholder='link' value={customizeurl} onChange={(e)=>setCustomizeurl(e.target.value)}/>
+                <InputRightAddon  borderTopRightRadius="10px" borderBottomRightRadius="10px" children='alias' />
+              </InputGroup>
           </Box>
          <Flex justifyContent="center" alignItems="center"  bg="#353C4A" borderRadius="10px" p={["5px 10px","5px 20px"]}>
             <Box>
@@ -97,6 +106,7 @@ const ShortenUrl = () => {
          <Button size={["sm","md","lg"]} fontSize={["12px","14px"]} onClick={logout} colorScheme="red">Logout</Button>
         </Flex>
         <Box mt="20px" w={["100%","90%"]} display={["block","block", "none"]}>
+            <Box>
              <InputGroup h="100%" borderRadius="30px">
                 <InputLeftElement pointerEvents='none'>
                   <FaLink/>
@@ -115,6 +125,12 @@ const ShortenUrl = () => {
                     }
                 </InputRightElement>
             </InputGroup>
+            <InputGroup mt="10px" borderRadius="30px">
+                <InputLeftAddon borderTopLeftRadius="30px" borderBottomLeftRadius="30px" children='customize link' />
+                <Input borderRadius="30px" placeholder='link' value={customizeurl} onChange={(e)=>setCustomizeurl(e.target.value)} />
+                <InputRightAddon display={["none","flex"]} borderTopRightRadius="30px" borderBottomRightRadius="30px" children='alias' />
+              </InputGroup>
+            </Box>
           </Box>
         {shortenedurl && 
         <HStack p="10px 0">
