@@ -2,7 +2,7 @@ import axios from 'axios';
 import api from '../utils/api'
 
 
-const API_BASE_URL = 'http://localhost:4000';
+const API_BASE_URL = 'https://urlshortner-3u0i.onrender.com';
 
 export const signUp = async (userData) => {
   try {
