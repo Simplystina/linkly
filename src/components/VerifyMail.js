@@ -21,11 +21,10 @@ const VerifyMail = () => {
         try {
             const data = await verifyMail(token)
             console.log(data,"data")
+            setMessage(true)
         } catch (error) {
             console.log(error,"erorrrr")
-            if (error.success === false){
-                setMessage(false)
-            }
+          setMessage(false)
         }
     }
 
@@ -38,7 +37,7 @@ const VerifyMail = () => {
         {message?
          <Box m="0 auto">
          <Img src={verified} w="100%" h="300px" objectFit="contain"/>
-              <Text fontSize={["40px"]} color="#fff">Verificated successful</Text>
+              <Text fontSize={["40px"]} color="#fff">Verification successful</Text>
            <Link to='/login'>
               <Button m="0 auto" fontSize={[14]}>Click to Login</Button>
            </Link>  
