@@ -1,4 +1,4 @@
-import { Flex , Box, Input, Button, Text, Img, useToast} from '@chakra-ui/react'
+import {Box, Input, Button, Text, Img, useToast} from '@chakra-ui/react'
 import verified from "../asset/verified.svg"
 import React, { useState } from 'react'
 import { resendMail } from '../utils/services'
