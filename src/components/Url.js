@@ -11,16 +11,6 @@ const Url = () => {
     console.log(id,"idddddddd k")
     const [link, setLink] = useState([]);
     
-    const fetchLinkDetails = async()=>{
-        console.log(id)
-        try {
-            const {data :{data}} = await getLink(id)
-            console.log(data, "data")
-            setLink(data)
-        } catch (error) {
-            console.log(error,"error")
-        }
-    }
 
     const handleDownload = () => {
         const linktag = document.createElement('a');
@@ -30,10 +20,20 @@ const Url = () => {
         linktag.click();
       };
     
-    useEffect(() => {
+      useEffect(() => {
+        const fetchLinkDetails = async () => {
+          console.log(id);
+          try {
+            const { data: { data } } = await getLink(id);
+            console.log(data, "data");
+            setLink(data);
+          } catch (error) {
+            console.log(error, "error");
+          }
+        };
+      
         fetchLinkDetails();
-      },[id])
-
+      }, [id, fetchLinkDetails]);
   return (
    <Box p={["20px","30px"]} >
      <Link to="/shorten-urls"><Box className='gradient-text'><FaBackward/></Box></Link>
