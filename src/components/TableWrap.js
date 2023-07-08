@@ -6,18 +6,20 @@ import { Box,  Table,
     Th,
     Td,
     TableCaption,
-    TableContainer, IconButton, useToast} from '@chakra-ui/react'
+    TableContainer, IconButton, useToast, Img} from '@chakra-ui/react'
 import {FiCopy} from "react-icons/fi"
 import moment from "moment"
 import {MdDelete} from "react-icons/md"
 
+
 import { linkHistory, deleteLinks } from '../utils/services'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const TableWrap = () => {
 
   const [allLinks, setAllLinks] = useState([])
   const toast = useToast()
+  const navigate = useNavigate()
 
 
   const copyToClipboard = (text) => {
@@ -71,6 +73,11 @@ const TableWrap = () => {
   useEffect(()=>{
     history()
   },[allLinks])
+
+  const gotoLink = (a)=>{
+    console.log(a,"iddddd")
+    navigate(`/url/${a}`)
+  }
   return (
 <Box mt="50px">
   <TableContainer>
@@ -79,7 +86,7 @@ const TableWrap = () => {
     <Thead>
       <Tr>
         <Th>Short link</Th>
-        <Th >Original link</Th>
+        <Th>Original link</Th>
         <Th>QR Code</Th>
         <Th>Clicks</Th>
         <Th>Status</Th>
@@ -91,23 +98,25 @@ const TableWrap = () => {
       {
         allLinks.map((item)=>{
           return (
-        <Tr key={item._id}> 
-        <Td fontSize={["12px","14px"]}>
-          <Link  id={item._id} data-id={item._id} to={item.shortenurl} >
+       
+          <Tr key={item._id} onClick={(e)=>gotoLink(item._id)} _hover={{color:"#EB568E"}} cursor="pointer"> 
+           
+           <Td fontSize={["12px","14px"]}>
+             <Link data-id={item._id} to={`/url/${item._id}`} >
             {item.shortenurl}
-          </Link>
-          
-          <IconButton onClick={(e) => copyToClipboard(item.shortenurl)} aria-label='Search database' icon={<FiCopy/>}/>
+             </Link>
+           <IconButton onClick={(e) => copyToClipboard(item.shortenurl)} aria-label='Search database' icon={<FiCopy/>}/>
          
-        </Td>
-        <Td fontSize={["12px","14px"]} className="wrapped-link">{item.originalurl}</Td>
-        <Td fontSize={["12px","14px"]}>{item.QRCode}</Td>
-        <Td fontSize={["12px","14px"]}>{item.clickCount}</Td>
-        <Td fontSize={["12px","14px"]}>active</Td>
-        <Td fontSize={["12px","14px"]}>{moment(item.createdAt).format('MMMM Do YYYY')}</Td>
-        <Td fontSize={["12px","14px"]} onClick={()=>deleteALink(item._id)}><IconButton aria-label='Search database' icon={<MdDelete/>} /></Td>
-
-      </Tr>
+          </Td>
+           <Td fontSize={["12px","14px"]} >{item.originalurl.length >= 50 ? `${item.originalurl.slice(0, 50)}...` : item.originalurl }</Td>
+          <Td ><Img src={item.qrcode} objectFit="contain" w="50px" h="50px"/></Td>
+          <Td fontSize={["12px","14px"]}>{item.clickCount}</Td>
+          <Td fontSize={["12px","14px"]}>active</Td>
+           <Td fontSize={["12px","14px"]}>{moment(item.createdAt).format('MMMM Do YYYY')}</Td>
+           <Td fontSize={["12px","14px"]} onClick={()=>deleteALink(item._id)}><IconButton aria-label='Search database' icon={<MdDelete/>} /></Td>
+          
+        </Tr>
+      
           )
         })
       }

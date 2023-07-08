@@ -86,13 +86,22 @@ const ShortenUrl = () => {
                 </InputLeftElement>
                 <Input onChange={(e) => setLink(e.target.value)} bg="#181E29" borderRadius="30px" value={link} type='tel' placeholder='Enter the link here'/>
                 <InputRightElement borderRadius="30px"  w="100px">
-                    <Button onClick={shorten} fontSize="12px" borderRadius="30px" w="100%" bg="#144EE3" fontFamily="Inter">
+                {
+                        loading?
+                        <Button isLoading loadingText="submitting" fontSize={["10px","12px"]} borderRadius="30px" w="100%" bg="#144EE3" fontFamily="Inter">
                       Shorten Now!
                     </Button>
+                    :
+                    <Button onClick={shorten} fontSize={["10px","12px"]} borderRadius="30px" w="100%" bg="#144EE3" fontFamily="Inter">
+                      Shorten Now!
+                    </Button>
+                    }
                 </InputRightElement>
             </InputGroup>
+
              <InputGroup size='sm' mt="20px">
-             <InputLeftAddon borderTopLeftRadius="10px" borderBottomLeftRadius="10px" children='customize link' />
+             <InputLeftAddon borderTopLeftRadius="10px" borderBottomLeftRadius="10px" 
+              children='customize link' />
                 <Input borderRadius="10px" placeholder='link' value={customizeurl} onChange={(e)=>setCustomizeurl(e.target.value)}/>
                 <InputRightAddon  borderTopRightRadius="10px" borderBottomRightRadius="10px" children='alias' />
               </InputGroup>
@@ -126,17 +135,17 @@ const ShortenUrl = () => {
                 </InputRightElement>
             </InputGroup>
             <InputGroup mt="10px" borderRadius="30px">
-                <InputLeftAddon borderTopLeftRadius="30px" borderBottomLeftRadius="30px" children='customize link' />
+                <InputLeftAddon borderTopLeftRadius="30px" borderBottomLeftRadius="30px"  fontSize="12px" children='customize link' />
                 <Input borderRadius="30px" placeholder='link' value={customizeurl} onChange={(e)=>setCustomizeurl(e.target.value)} />
                 <InputRightAddon display={["none","flex"]} borderTopRightRadius="30px" borderBottomRightRadius="30px" children='alias' />
               </InputGroup>
             </Box>
           </Box>
         {shortenedurl && 
-        <HStack p="10px 0">
+        <a href={shortenedurl}><HStack p="10px 0">
             <Text fontSize={["12px","14px"]}>{shortenedurl}</Text>
-            <Box onClick={()=>copyToClipboard(shortenedurl, toast)} cursor="pointer"><FiCopy/></Box>
-        </HStack>}
+            <Box  onClick={()=>copyToClipboard(shortenedurl, toast)} cursor="pointer"><FiCopy/></Box>
+        </HStack></a>}
         <HStack justify="center" p={["10px","20px"]}>
               <Switch></Switch>
               <Text fontSize={["10px","12px","14px"]}>Auto Paste from Clipboard </Text>

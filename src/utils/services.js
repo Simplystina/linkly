@@ -75,6 +75,15 @@ export const deleteLinks = async(id)=>{
     throw error.response.data;
   }
 }
+export const getLink = async(id)=>{
+  try {
+    const response = await api.get(`/urls/links/${id}`)
+    return response
+  } catch (error) {
+    console.log(error,"erorr")
+    throw error.response.data;
+  }
+}
 
 export const copyToClipboard = (text, toast) => {
 

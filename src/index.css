@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Inter:regular,bold,italic&subset=latin,latin-ext');
 
 body {
-  font-family: Cormorant Upright;
+  font-family: 'Inter' !important;
    color: white !important;
 }
 
@@ -74,3 +74,6 @@ code {
   
 }
 
+.g{
+  color: #e47ced;
+}

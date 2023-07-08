@@ -69,12 +69,12 @@ const Home = () => {
   }
 }
   return (
-    <Box className="homePage" p={["10px", "20px"]}>
+    <Box className="homePage" p={["20px", "20px"]}>
       <Flex justifyContent="space-between">
          <Img src={linkly} w={["80px","100px"]} h={["50px","100px"]} objectFit="contain"/>
          <HStack>
           
-           <Button colorScheme="gray" onClick={login} fontFamily="Inter" borderRadius={20} p={["6px 15px","10px 20px"]} fontSize={["10px","12px"]} color="FFFFFF" border="0.5px inset #FFFFFF" leftIcon={<BiLinkExternal/>}>
+           <Button colorScheme="gray" onClick={login} fontFamily="Inter" borderRadius={20} p={["10px 15px","10px 20px"]} fontSize={["10px","12px"]} color="FFFFFF" border="0.5px inset #FFFFFF" leftIcon={<BiLinkExternal/>}>
             login
            </Button>
          
@@ -87,9 +87,9 @@ const Home = () => {
       </Flex>
       
       <Box m={["80px auto 0 auto", "30px auto 0 auto"]} w={["100%","80%","60%"]}>
-        <Text fontFamily="Cormorant Upright" textAlign="center" fontSize={["30px","45px"]} className="title-gradient-text">Shorten Your Loooong Links:)</Text>
+        <Text fontFamily="Cormorant Upright" textAlign="center" fontSize={["35px","40px","50px"]} className="title-gradient-text">Shorten Your Loooong Links:)</Text>
 
-         <Text fontFamily="Cormorant Upright" p="20px 0" textAlign="center" fontSize={["14px","16px"]}>Linkly is an efficient and easy-to-use URL shortening service that streamlines your online experience.</Text>
+         <Text fontFamily="Cormorant Upright" p="20px 0" textAlign="center" fontSize={["16px","18px"]}>Linkly is an efficient and easy-to-use URL shortening service that streamlines your online experience.</Text>
          <Box mt="30px">
             <InputGroup h="100%" borderRadius="30px">
                 <InputLeftElement pointerEvents='none'>
