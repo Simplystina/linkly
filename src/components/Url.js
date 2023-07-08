@@ -20,18 +20,19 @@ const Url = () => {
         linktag.click();
       };
     
+      const fetchLinkDetails = async () => {
+        console.log(id);
+        try {
+          const { data: { data } } = await getLink(id);
+          console.log(data, "data");
+          setLink(data);
+        } catch (error) {
+          console.log(error, "error");
+        }
+      };
+    
       useEffect(() => {
-        const fetchLinkDetails = async () => {
-          console.log(id);
-          try {
-            const { data: { data } } = await getLink(id);
-            console.log(data, "data");
-            setLink(data);
-          } catch (error) {
-            console.log(error, "error");
-          }
-        };
-      
+       
         fetchLinkDetails();
       }, [id, fetchLinkDetails]);
   return (
