@@ -1,4 +1,4 @@
-import {Box, Text, Img, Button,  Center, HStack, useToast} from "@chakra-ui/react"
+import {Box, Text, Img, Button, HStack, useToast} from "@chakra-ui/react"
 import React, { useState } from 'react'
 import linkshorten from "../asset/link_shortener.svg"
 import { Link, useNavigate } from "react-router-dom";
@@ -49,9 +49,14 @@ const GoToMail = () => {
   return (
     <Box className="homePage" p={["20px","30px"]} >
         <Link to="/"><Box className='gradient-text'><FaBackward/></Box></Link>
-        <Text textAlign="center" pt="40px" fontFamily="Cormorant Upright" fontSize={["35px","40px","50px"]} className="title-gradient-text">Welcome to LinkURL</Text>
+        <Text textAlign="center" pt="20px" fontFamily="Cormorant Upright" fontSize={["35px","40px","50px"]} className="title-gradient-text">Welcome to LinkURL</Text>
         <Text textAlign="center" fontSize={[12,14]} fontFamily="Inter">please verify your email address to start shortening your URLs</Text>
-        <Center><Button onClick={handleEmailClick} mt="20px">Go to Email</Button></Center>
+     
+            <HStack mt="10px" align="center" justify="center">
+               <Button _hover={{color:"#144EE3", bg:"whitesmoke"}} fontFamily="Inter" p={["15px 30px","10px 40px"]} fontSize={["10px","12px"]} bg="#144EE3" borderRadius={10} color="FFFFFF" onClick={handleEmailClick} >Go to Email</Button>
+               <Link to="/login"><Button>Login</Button></Link>
+            </HStack>
+
         <Img m="0 auto" h="300px" src={linkshorten} objectFit="contain"/>
         <HStack pb="40px" justify="center">
             <Text fontSize={[14,16]}>Can't find Verification mail</Text>
