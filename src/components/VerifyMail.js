@@ -38,7 +38,7 @@ const VerifyMail = () => {
 
     useEffect(()=>{
        verify(token,email)
-    },[token])
+    },[token, email])
     
   return (
     <Box className="homePage" p={["10px", "20px"]}>
