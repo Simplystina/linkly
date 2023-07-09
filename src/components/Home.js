@@ -1,5 +1,5 @@
 import React,{ useState} from 'react'
-import {Box, Flex, Text, Img, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, useToast} from "@chakra-ui/react"
+import {Box, Flex, Text, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, useToast} from "@chakra-ui/react"
 import {FaLink} from "react-icons/fa"
 
 import {BiLinkExternal} from "react-icons/bi"

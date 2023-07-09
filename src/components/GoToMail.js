@@ -1,4 +1,4 @@
-import {Box, Flex, Text, Img, Button,  Center, HStack, useToast} from "@chakra-ui/react"
+import {Box, Text, Img, Button,  Center, HStack, useToast} from "@chakra-ui/react"
 import React, { useState } from 'react'
 import linkshorten from "../asset/link_shortener.svg"
 import { Link, useNavigate } from "react-router-dom";
