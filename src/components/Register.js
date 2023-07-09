@@ -1,5 +1,5 @@
  import React, { useState } from 'react'
- import { Box, VStack, Text, Input , Button, useToast, Flex} from '@chakra-ui/react'
+ import { Box, VStack, Text, Input , Button, useToast, Flex, InputRightElement, InputGroup} from '@chakra-ui/react'
  import {FaBackward} from "react-icons/fa"
 import { Link, useNavigate } from 'react-router-dom'
 import { signUp } from '../utils/services'
@@ -12,6 +12,8 @@ import { signUp } from '../utils/services'
     const [lastName, setLastName] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const [show, setShow] = useState(false)
+    const handleClick = () => setShow(!show)
 
     const handleSignUp = async () => {
         setLoading(true)
@@ -63,7 +65,7 @@ import { signUp } from '../utils/services'
 
 
     const handleChange = (e) => {
-      
+
         const { name, value } = e.target;
         // Update the corresponding state based on the input field name
         switch (name) {
@@ -119,12 +121,21 @@ import { signUp } from '../utils/services'
                 </Box>
                 <Box  w="100%">
                     <Text>Password</Text>
-                    <Input 
-                    placeholder="password"
-                    name="password"
-                    value={password}
-                    onChange={handleChange}
-                    ></Input>
+                    <InputGroup size='md'>
+                      <Input
+                        pr='4.5rem'
+                          type={show ? 'text' : 'password'}
+                           placeholder='Enter password'
+                           name="password"
+                          value={password}
+                          onChange={handleChange}
+                        />
+                       <InputRightElement width='4.5rem'>
+                      <Button h='1.75rem' size='sm' onClick={handleClick}>
+                            {show ? 'Hide' : 'Show'}
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
                 </Box>
             </VStack>
             {loading? 

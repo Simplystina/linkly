@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Box, VStack, Text, Input, Button, Flex , useToast} from '@chakra-ui/react'
+import { Box, VStack, Text, Input, Button, Flex , useToast,InputRightElement, InputGroup} from '@chakra-ui/react'
 import {FaBackward} from "react-icons/fa"
 import { useNavigate , Link} from "react-router-dom";
 import { login } from '../utils/services'
@@ -13,6 +13,8 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const [show, setShow] = useState(false)
+    const handleClick = () => setShow(!show)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -100,10 +102,21 @@ const Login = () => {
                </Box>
                <Box  w="100%">
                    <Text>Password</Text>
-                   <Input placeholder="password"
-                    name="password"
-                    value={password}
-                    onChange={handleChange}></Input>
+                   <InputGroup size='md'>
+                      <Input
+                        pr='4.5rem'
+                          type={show ? 'text' : 'password'}
+                           placeholder='Enter password'
+                           name="password"
+                           value={password}
+                           onChange={handleChange}
+                        />
+                       <InputRightElement width='4.5rem'>
+                      <Button h='1.75rem' size='sm' onClick={handleClick}>
+                            {show ? 'Hide' : 'Show'}
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
                </Box>
            </VStack>
            {loading? 
