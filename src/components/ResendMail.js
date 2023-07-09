@@ -24,6 +24,14 @@ const ResendMail = ()  => {
                 position: 'top-left'
               })
         } catch (error) {
+           toast({
+            title: 'User not Found',
+            description: error.message,
+            status: 'error',
+            duration: 2000,
+            isClosable: true,
+            position: 'top-left'
+          })
             console.log(error,"erorrrr")
           
         }finally{
@@ -47,9 +55,9 @@ const ResendMail = ()  => {
                 </Box>
                {
                 loading?
-                <Button isLoading loadingText="submitting" mt="10px" m="0 auto" fontSize={[14]}>resend token</Button>
+                <Button isLoading loadingText="submitting" mt="10px"  fontSize={[14]}>resend token</Button>
                 :
-                <Button mt="10px" onClick={resend} m="0 auto" fontSize={[14]}>resend token</Button>
+                <Button mt="20px" onClick={resend} fontSize={[14]}>resend token</Button>
                }
        </Box>
 

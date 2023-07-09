@@ -1,8 +1,7 @@
-import React,{useState} from 'react'
+import React,{ useState} from 'react'
 import {Box, Flex, Text, Img, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, useToast} from "@chakra-ui/react"
 import {FaLink} from "react-icons/fa"
 
-import linkly from "../asset/Linkly.png"
 import {BiLinkExternal} from "react-icons/bi"
 import { shortenLink , copyToClipboard} from '../utils/services'
 import { Link, useNavigate } from 'react-router-dom'
@@ -13,6 +12,7 @@ const Home = () => {
   const [link, setLink] = useState('')
   const [shortenedurl, setShortenedUrl] = useState('') 
   const [loading, setLoading] = useState(false)
+  
 
   const toast = useToast()
   const navigate = useNavigate()
@@ -68,11 +68,15 @@ const Home = () => {
     setLoading(false)
   }
 }
+
+  
+   
   return (
-    <Box className="homePage" p={["20px", "20px"]}>
+    <Box className="homePage" p={["15px", "20px"]}>
       <Flex justifyContent="space-between">
-         <Img src={linkly} w={["80px","100px"]} h={["50px","100px"]} objectFit="contain"/>
-         <HStack>
+          <Text fontFamily="Cormorant Upright" textAlign="center" fontSize={["20px","40px","50px"]} className="logo-gradient-text">LinkURL</Text>
+         
+         <HStack display={["none","flex"]}>
           
            <Button colorScheme="gray" onClick={login} fontFamily="Inter" borderRadius={20} p={["10px 15px","10px 20px"]} fontSize={["10px","12px"]} color="FFFFFF" border="0.5px inset #FFFFFF" leftIcon={<BiLinkExternal/>}>
             login
@@ -84,6 +88,10 @@ const Home = () => {
               </Button>
             </Link>
          </HStack>
+         <HStack display={["flex","none"]} spacing={[5]}>
+           <Text fontSize="12px" cursor="pointer" onClick={login}>Login</Text>
+           <Link to="/register"><Text fontSize="12px">Register</Text></Link>
+        </HStack>
       </Flex>
       
       <Box m={["80px auto 0 auto", "30px auto 0 auto"]} w={["100%","80%","60%"]}>

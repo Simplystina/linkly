@@ -7,6 +7,7 @@ import ShortenUrl from "./components/ShortenUrl";
 import VerifyMail from "./components/VerifyMail";
 import ResendMail from "./components/ResendMail";
 import Url from "./components/Url";
+import GoToMail from "./components/GoToMail";
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
           <Route exact={true} path='/verify-mail' element={<VerifyMail/>}></Route> 
           <Route exact={true} path='/shorten-urls' element={<ShortenUrl/>}></Route> 
           <Route exact={true} path='/url/:id' element={<Url/>}></Route> 
-          <Route exact={true} path='/resend-mail' element={<ResendMail/>}></Route>
+          <Route exact={true} path='/resend-mail' element={<ResendMail/>}
+          ></Route>
+          <Route exact={true} path='/goto-mail' element={<GoToMail/>}></Route>
       </Routes>
     </Router>
     

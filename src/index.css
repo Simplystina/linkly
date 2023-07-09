@@ -6,6 +6,7 @@
 body {
   font-family: 'Inter' !important;
    color: white !important;
+   height: 100%;
 }
 
 code {
@@ -19,6 +20,8 @@ code {
       background-repeat: no-repeat;
       margin: 0;
       height: 100vh;
+      width: 100%;
+      overflow: auto;
 }
 
 .title-gradient-text {
@@ -29,6 +32,13 @@ code {
   -moz-text-fill-color: transparent;
   letter-spacing: 3px;
   font-weight: 900;
+}
+.logo-gradient-text {
+	    text-align: center;
+	    color: #fcedd8;   
+	    font-weight: 700;
+ 
+              
 }
 .gradient-text {
   background-color: #f3ec78;

@@ -6,7 +6,7 @@ const API_BASE_URL = 'https://urlshortner-3u0i.onrender.com';
 
 export const signUp = async (userData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/user/signup`, userData);
+    const response = await axios.post(`${API_BASE_URL}/auth/signup`, userData);
     return response.data;
   } catch (error) {
     throw error.response.data;
@@ -15,7 +15,7 @@ export const signUp = async (userData) => {
 
 export const login = async (credentials) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/user/login`, credentials);
+    const response = await axios.post(`${API_BASE_URL}/auth/login`, credentials);
     return response.data;
   } catch (error) {
     throw error.response.data;
@@ -24,7 +24,7 @@ export const login = async (credentials) => {
 
 export const verifyMail = async (token) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/user/verify?token=${token}`);
+    const response = await axios.get(`${API_BASE_URL}/auth/verify?token=${token}`);
 
     console.log(response,"response")
     return response.data;
@@ -36,7 +36,7 @@ export const verifyMail = async (token) => {
 
 export const resendMail = async (data) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/user/resend-link`, data);
+    const response = await axios.post(`${API_BASE_URL}/auth/resend-link`, data);
 
     console.log(response,"response")
     return response.data;
@@ -105,3 +105,13 @@ export const copyToClipboard = (text, toast) => {
       // Handle the error, e.g., show an error message to the user
     });
 };
+
+export const getUser = async()=>{
+  try {
+    const response = await api.get(`/user/info`)
+    return response
+  } catch (error) {
+    console.log(error,"error")
+    throw error.response.data;
+  }
+}

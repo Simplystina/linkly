@@ -7,6 +7,7 @@ import {FaBackward} from 'react-icons/fa'
 import linkImg from "../asset/share_link.svg"
 
 const Url = () => {
+  
     const {id } = useParams();
     console.log(id,"idddddddd k")
     const [link, setLink] = useState([]);

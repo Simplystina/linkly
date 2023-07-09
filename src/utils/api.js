@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 
-
 // Create an instance of Axios with the desired default configuration
 const api = axios.create({
   baseURL: 'https://urlshortner-3u0i.onrender.com',

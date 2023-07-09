@@ -43,7 +43,9 @@ import { signUp } from '../utils/services'
           setLastName('');
           setPassword('');
 
-          navigate('/login')
+          localStorage.setItem("useremail", data?.data?.email)
+
+          navigate('/goto-mail')
         } catch (error) {
             console.log(error.message, error); // Display the error message
             toast({
@@ -61,7 +63,7 @@ import { signUp } from '../utils/services'
 
 
     const handleChange = (e) => {
-        console.log(e,"ee")
+      
         const { name, value } = e.target;
         // Update the corresponding state based on the input field name
         switch (name) {
