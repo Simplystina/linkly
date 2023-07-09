@@ -14,12 +14,13 @@ const VerifyMail = () => {
 
   // Accessing query parameters
   const token = queryParams.get('token');
-  console.log(token,"token")
+  const email = queryParams.get('email');
+  console.log(token,"token",email)
     
    const [message, setMessage] = useState('')
     const verify = async(token)=>{
         try {
-            const data = await verifyMail(token)
+            const data = await verifyMail(token,email)
             console.log(data,"data")
             setMessage(true)
         } catch (error) {

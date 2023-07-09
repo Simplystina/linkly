@@ -22,9 +22,10 @@ export const login = async (credentials) => {
   }
 };
 
-export const verifyMail = async (token) => {
+export const verifyMail = async (token,email) => {
+  console.log(token,email)
   try {
-    const response = await axios.get(`${API_BASE_URL}/auth/verify?token=${token}`);
+    const response = await axios.get(`${API_BASE_URL}/auth/verify?token=${token}&email=${email}`);
 
     console.log(response,"response")
     return response.data;

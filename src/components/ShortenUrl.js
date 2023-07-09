@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import linkshorten from "../asset/link_shortener.svg"
 import {FaLink} from "react-icons/fa"
 import TableWrap from "./TableWrap"
-import { shortenLink, copyToClipboard , getUser} from "../utils/services"
+import { shortenLink, copyToClipboard , getUser, resendMail} from "../utils/services"
 import {FiCopy} from "react-icons/fi"
 import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
@@ -82,7 +82,17 @@ const ShortenUrl = () => {
        userDetails()
     },[shortenedurl])
 
-    const handleEmailClick = () => {
+    const handleEmailClick = async () => {
+      const data = await resendMail({email: userData.email})
+      console.log(data,"data")
+      toast({
+          title: 'Mail resent',
+          description: data.message,
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+          position: 'top-left'
+        })
       window.open('https://mail.google.com/', '_blank')
     };
   
@@ -96,7 +106,7 @@ const ShortenUrl = () => {
           
          <Button size={["sm","md","lg"]} fontSize={["12px","14px"]} onClick={logout} colorScheme="red">Logout</Button>
         </Flex>
-        {userData.verified ?   
+  
         <Box>
          <Box m="60px auto 20px auto" w={["100%","90%"]}>
                 <Box>
@@ -136,13 +146,15 @@ const ShortenUrl = () => {
               <Switch></Switch>
               <Text fontSize={["10px","12px","14px"]}>Auto Paste from Clipboard </Text>
              </HStack>
-             <TableWrap/>  
+            
            
       </Box>
+      {userData.verified ?   
+          <TableWrap/>       
       :
-      <Box m="40px auto">
+      <Box m="20px auto">
         <Text textAlign="center" fontFamily="Cormorant Upright" fontSize={["35px","40px","50px"]} className="title-gradient-text">Welcome to LinkURL</Text>
-        <Text textAlign="center" fontSize={[12,14]} fontFamily="Inter">please verify your email address to start shortening your URLs</Text>
+        <Text textAlign="center" fontSize={[12,14]} fontFamily="Inter">please verify your email address to view your shortened URLs and download qr codes</Text>
         <Center><Button onClick={handleEmailClick} mt="20px">verify Email</Button></Center>
         <Img m="0 auto" h="300px" src={linkshorten} objectFit="contain"/>
       </Box>
