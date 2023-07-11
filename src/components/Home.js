@@ -13,6 +13,7 @@ const Home = () => {
   const [shortenedurl, setShortenedUrl] = useState('') 
   const [loading, setLoading] = useState(false)
   
+  
 
   const toast = useToast()
   const navigate = useNavigate()
@@ -23,9 +24,9 @@ const Home = () => {
       navigate('/shorten-urls')
     }else{
       navigate('/login')
+     }
     }
-  }
-  const shorten = async()=>{
+   const shorten = async()=>{
     if(!link){
         console.log("Empty")
         return
@@ -35,10 +36,10 @@ const Home = () => {
    if(!token){
     return navigate('/login')
    }
-  try {
+   try {
      setLoading(true)
-    //"https://en.wikipedia.org/wiki/Adesua_Etomi"
-    const data = {
+     //"https://en.wikipedia.org/wiki/Adesua_Etomi"
+     const data = {
         "url": link
        }
     const info = await shortenLink(data)

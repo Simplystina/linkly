@@ -1,4 +1,4 @@
-import {Box, Flex, Text, Img, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, useToast,  InputLeftAddon, InputRightAddon, Center} from "@chakra-ui/react"
+import {Box, Flex, Text, Img, Button, HStack, InputGroup, InputLeftElement, Input, InputRightElement, Switch, useToast,  InputLeftAddon, InputRightAddon, Center, Spinner} from "@chakra-ui/react"
 import React, { useEffect, useState } from 'react'
 import linkshorten from "../asset/link_shortener.svg"
 import {FaLink} from "react-icons/fa"
@@ -17,6 +17,7 @@ const ShortenUrl = () => {
     const [loading, setLoading] = useState(false)
     const [customizeurl, setCustomizeurl] = useState('')
     const [userData, setUserData] = useState([])
+    const [initialSiteLoading, setInitialSiteLoading] = useState(true)
   
     const logout = ()=>{
         localStorage.removeItem('token');
@@ -26,7 +27,7 @@ const ShortenUrl = () => {
 
 
     const shorten = async()=>{
-        console.log(link,"linkkkkkkkk")
+
         if(!link){
             console.log("Empty")
             return
@@ -68,7 +69,7 @@ const ShortenUrl = () => {
         setLink('')
       }
     }
-    useEffect(()=>{
+  useEffect(()=>{
      
       const userDetails = async()=>{
         try {
@@ -77,6 +78,8 @@ const ShortenUrl = () => {
           setUserData(user?.data?.data)
         } catch (error) {
           console.log(error)
+        }finally{
+          setInitialSiteLoading(false)
         }
        }
        userDetails()
@@ -96,15 +99,29 @@ const ShortenUrl = () => {
       window.open('https://mail.google.com/', '_blank')
     };
   
-    
+    if(initialSiteLoading){
+     return(
+      
+     <Box p={["20px 15px","10px 30px "]} w="100%" h="100vh">
+          <Flex justifyContent="space-between" alignItems="center">
+            <Link to='/'>
+               <Text fontFamily="Cormorant Upright" textAlign="center" fontSize={["20px","40px","50px"]} className="logo-gradient-text">LinkURL</Text>
+            </Link>
+            <Button size={["sm","md","lg"]} fontSize={["12px","14px"]} onClick={logout} colorScheme="red">Logout</Button>
+          </Flex>
+          <Flex  w="100%" h="100%" m="auto" justifyContent="center" alignContent="center" alignItems="center" >
+             <Spinner size='xl' />
+          </Flex>
+       </Box>
+   ) }
   return (
     <Box p={["20px 15px","10px 30px "]}>
-        <Flex justifyContent="space-between" alignItems="center">
+      <Flex justifyContent="space-between" alignItems="center">
          <Link to='/'>
-         <Text fontFamily="Cormorant Upright" textAlign="center" fontSize={["20px","40px","50px"]} className="logo-gradient-text">LinkURL</Text>
+            <Text fontFamily="Cormorant Upright" textAlign="center" fontSize={["20px","40px","50px"]} className="logo-gradient-text">LinkURL</Text>
          </Link>
           
-         <Button size={["sm","md","lg"]} fontSize={["12px","14px"]} onClick={logout} colorScheme="red">Logout</Button>
+            <Button size={["sm","md","lg"]} fontSize={["12px","14px"]} onClick={logout} colorScheme="red">Logout</Button>
         </Flex>
   
         <Box>

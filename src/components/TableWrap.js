@@ -78,6 +78,8 @@ const TableWrap = () => {
     console.log(a,"iddddd")
     navigate(`/url/${a}`)
   }
+
+  
   return (
 <Box mt="50px">
   <TableContainer>

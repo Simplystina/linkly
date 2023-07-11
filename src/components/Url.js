@@ -44,7 +44,7 @@ const Url = () => {
         <Box w={["100%","100%","50%"]} >
            <Box align="baseline">
              <Text fontSize={["20px","40px"]} fontFamily="Cormorant Upright" fontWeight="700" >Original url: </Text>
-             <a href={link.originalurl}>
+             <a target="_blank" href={link.originalurl}>
               <Text textSizeAdjust="auto" fontSize="14px" textDecoration="underline"> { link.originalurl }</Text>
             </a>
            </Box>
@@ -52,11 +52,11 @@ const Url = () => {
            <Box m="20px" h="2px" w="100%" bg="purple"></Box>
            <VStack align="baseline">
              <Text fontSize={["20px","40px"]} fontFamily="Cormorant Upright" fontWeight="700">Shortened url: </Text>
-            <Link>
-              <a href={link.shortenurl}>
+      
+              <a target="_blank" href={link.shortenurl}>
                 <Text maxW="100%" fontSize="14px" textDecoration="underline">{link.shortenurl}</Text>
               </a>
-            </Link>
+
            </VStack>
            <Flex justifyContent="space-between" flexDir={["column","column","row"]}>
              <Box>
