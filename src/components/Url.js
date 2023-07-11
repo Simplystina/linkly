@@ -44,7 +44,7 @@ const Url = () => {
         <Box w={["100%","100%","50%"]} >
            <Box align="baseline">
              <Text fontSize={["20px","40px"]} fontFamily="Cormorant Upright" fontWeight="700" >Original url: </Text>
-             <a target="_blank" href={link.originalurl}>
+             <a target="_blank" href={link.originalurl} rel="noreferrer">
               <Text textSizeAdjust="auto" fontSize="14px" textDecoration="underline"> { link.originalurl }</Text>
             </a>
            </Box>
@@ -53,7 +53,7 @@ const Url = () => {
            <VStack align="baseline">
              <Text fontSize={["20px","40px"]} fontFamily="Cormorant Upright" fontWeight="700">Shortened url: </Text>
       
-              <a target="_blank" href={link.shortenurl}>
+              <a target="_blank" rel="noreferrer" href={link.shortenurl}>
                 <Text maxW="100%" fontSize="14px" textDecoration="underline">{link.shortenurl}</Text>
               </a>
 
