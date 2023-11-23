@@ -53,6 +53,8 @@ const ShortenUrl = () => {
       })
        setShortenedUrl(info.data.shortenurl)
        setLink('')
+        setCustomizeurl("");
+      
       } catch (error) {
         console.log(error.message, error)
         toast({
@@ -65,8 +67,7 @@ const ShortenUrl = () => {
           })
       }finally{
         setLoading(false)
-        setCustomizeurl('')
-        setLink('')
+       
       }
     }
   useEffect(()=>{
@@ -77,7 +78,7 @@ const ShortenUrl = () => {
           console.log(user?.data?.data,"user")
           setUserData(user?.data?.data)
         } catch (error) {
-          console.log(error)
+          console.log(error,"error")
         }finally{
           setInitialSiteLoading(false)
         }

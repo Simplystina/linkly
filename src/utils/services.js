@@ -38,7 +38,6 @@ export const verifyMail = async (token,email) => {
 export const resendMail = async (data) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/auth/resend-link`, data);
-
     console.log(response,"response")
     return response.data;
   } catch (error) {
@@ -46,6 +45,7 @@ export const resendMail = async (data) => {
     throw error.response.data;
   }
 };
+
 export const shortenLink = async(data)=>{
   try {
     const response = await api.post('/urls/shorten', data)
@@ -91,8 +91,6 @@ export const copyToClipboard = (text, toast) => {
   navigator.clipboard.writeText(text)
     .then(() => {
       console.log('Link copied to clipboard');
-     
-
      toast({
       title: 'Link copied successfully',
       status: 'success',
